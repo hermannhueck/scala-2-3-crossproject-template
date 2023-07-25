@@ -23,7 +23,9 @@ object Dependencies {
     slf4jSimple
   )
 
-  lazy val testDependencies = Seq.empty
+  lazy val testDependencies = Seq(
+    "org.scalameta" %% "munit-scalacheck" % munitVersion
+  ).map(_ % Test)
 
   def pluginDependencies(scalaVersion: String): Seq[ModuleID] = {
     CrossVersion.partialVersion(scalaVersion) match {
